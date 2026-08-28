@@ -1,0 +1,28 @@
+name: Validate wordlist
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate wordlist
+        run: node scripts/validate.mjs
+
+      - name: Check VERSION change (PR only)
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+          base=$(git show "origin/${{ github.base_ref }}:VERSION" 2>/dev/null | tr -d '[:space:]')
+          head=$(tr -d '[:space:]' < VERSION)
+          node scripts/check-version-bump.mjs "$base" "$head"

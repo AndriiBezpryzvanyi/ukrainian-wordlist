@@ -1,0 +1,4 @@
+# Every PR requires review from the repository owner.
+# Combined with branch protection ("Require review from Code Owners"),
+# this ensures no change lands on `main` without approval.
+* @AndriiBezpryzvanyi

@@ -1,0 +1,61 @@
+name: Version bump
+
+on:
+  push:
+    branches: [main]
+
+# Skip the workflow's own bump commit to avoid an infinite loop.
+concurrency:
+  group: version-bump
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    if: "!contains(github.event.head_commit.message, '[skip-bump]')"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Read versions
+        id: v
+        run: |
+          prev=$(git show HEAD~1:VERSION 2>/dev/null | tr -d '[:space:]' || echo "")
+          curr=$(tr -d '[:space:]' < VERSION)
+          echo "prev=$prev" >> "$GITHUB_OUTPUT"
+          echo "curr=$curr" >> "$GITHUB_OUTPUT"
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Auto PATCH bump (VERSION unchanged in this merge)
+        if: steps.v.outputs.prev == steps.v.outputs.curr
+        run: |
+          curr="${{ steps.v.outputs.curr }}"
+          IFS=. read -r maj min pat <<< "$curr"
+          new="$maj.$min.$((pat + 1))"
+          echo "$new" > VERSION
+          git add VERSION
+          git commit -m "chore: bump version to $new [skip-bump]"
+          git tag "v$new"
+          git push origin HEAD:main
+          git push origin "v$new"
+          echo "Bumped: $curr → $new"
+
+      - name: Tag MINOR/MAJOR release (VERSION changed manually)
+        if: steps.v.outputs.prev != steps.v.outputs.curr
+        run: |
+          v="${{ steps.v.outputs.curr }}"
+          if git rev-parse "v$v" >/dev/null 2>&1; then
+            echo "Tag v$v already exists — nothing to do"
+          else
+            git tag "v$v"
+            git push origin "v$v"
+            echo "Tagged: v$v"
+          fi

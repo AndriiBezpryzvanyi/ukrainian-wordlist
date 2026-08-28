@@ -1,0 +1,10 @@
+# JetBrains IDEs — commit only inspection profiles, ignore user-specific files
+.idea/*
+!.idea/inspectionProfiles/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (in case someone runs tooling locally)
+node_modules/
