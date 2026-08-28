@@ -3,3 +3,16 @@
 {"word":"жираф","pos":["noun"],"gender":"masc","tags":["animal"]}
 {"word":"журнал","pos":["noun"],"gender":"masc","tags":["object"]}
 {"word":"жінка","pos":["noun"],"gender":"fem","tags":["person"]}
+{"word":"жабка","pos":["noun"],"gender":"fem","tags":["animal"]}
+{"word":"жереб","pos":["noun"],"gender":"masc","tags":["abstract"]}
+{"word":"жерло","pos":["noun"],"gender":"neut","tags":["object"]}
+{"word":"жетон","pos":["noun"],"gender":"masc","tags":["object"]}
+{"word":"живіт","pos":["noun"],"gender":"masc","tags":["object"]}
+{"word":"жилка","pos":["noun"],"gender":"fem","tags":["object"]}
+{"word":"жилет","pos":["noun"],"gender":"masc","tags":["clothing"]}
+{"word":"житло","pos":["noun"],"gender":"neut","tags":["building"]}
+{"word":"жокей","pos":["noun"],"gender":"masc","tags":["profession","person"]}
+{"word":"журба","pos":["noun"],"gender":"fem","tags":["feeling"]}
+{"word":"жупан","pos":["noun"],"gender":"masc","tags":["clothing"]}
+{"word":"жуйка","pos":["noun"],"gender":"fem","tags":["food"]}
+{"word":"живий","pos":["adj"],"tags":["abstract"]}

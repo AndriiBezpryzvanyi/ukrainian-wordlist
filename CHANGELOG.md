@@ -9,6 +9,10 @@ While the project is at `0.x`, the data schema is considered unstable and may ch
 
 ## [Unreleased]
 
+### Added
+- New tag `vulgar` in `tags.json` for offensive/obscene vocabulary.
+- ~240 new 5-letter entries across letters в, л, м, н, о, п, р, с, т, у.
+
 ## [0.1.0] — 2026-08-28
 
 ### Added
