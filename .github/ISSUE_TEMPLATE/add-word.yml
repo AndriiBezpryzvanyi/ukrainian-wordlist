@@ -1,0 +1,46 @@
+name: Add a word
+description: Suggest a Ukrainian word (or several) to include in the wordlist.
+title: "words: add <word(s)>"
+labels: ["words"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping! Please read the rules in [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md) first — briefly: base forms only, no proper nouns, no abbreviations, no Russianisms or surzhyk.
+
+  - type: textarea
+    id: words
+    attributes:
+      label: Word(s)
+      description: One word per line. Use the base form (nominative singular for nouns; nominative singular masculine for adjectives).
+      placeholder: |
+        книга
+        великий
+        черговий
+    validations:
+      required: true
+
+  - type: dropdown
+    id: pos
+    attributes:
+      label: Part of speech
+      description: Pick all that apply to every word above. If words differ, open a separate issue per group.
+      multiple: true
+      options:
+        - noun
+        - adj
+    validations:
+      required: true
+
+  - type: input
+    id: tags
+    attributes:
+      label: Suggested tags
+      description: Comma-separated. Must exist in [tags.json](../blob/main/tags.json). Leave empty if unsure.
+      placeholder: "food, plant"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes (optional)
+      description: Anything worth mentioning — source, ambiguity, gender if it's a noun, etc.

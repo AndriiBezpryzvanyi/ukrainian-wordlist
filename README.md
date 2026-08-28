@@ -1,5 +1,8 @@
 # ukrainian-wordlist
 
+[![Validate wordlist](https://github.com/AndriiBezpryzvanyi/ukrainian-wordlist/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/AndriiBezpryzvanyi/ukrainian-wordlist/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 An open, community-maintained wordlist of Ukrainian words with part-of-speech marks and thematic tags — a shared source of Ukrainian vocabulary for word games, NLP, education, and any project that needs it.
 
 ## What's inside

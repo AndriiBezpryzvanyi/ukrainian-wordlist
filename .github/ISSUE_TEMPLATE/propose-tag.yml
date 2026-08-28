@@ -1,0 +1,35 @@
+name: Propose a tag
+description: Suggest a new thematic tag to add to tags.json.
+title: "tags: add <tag>"
+labels: ["tags"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tags are the controlled vocabulary in [tags.json](../blob/main/tags.json). Adding a tag affects every future word — please make sure it's genuinely useful and not a synonym of an existing one.
+
+  - type: input
+    id: tag
+    attributes:
+      label: Tag name
+      description: One word, lowercase, English (e.g. `vehicle`, `insect`, `material`).
+      placeholder: "insect"
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why this tag?
+      description: What class of words needs it? Give 3–5 example words that would use it.
+      placeholder: |
+        Needed to distinguish insects from other animals.
+        Examples: бджола, мураха, метелик, комар, оса
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Existing alternatives considered
+      description: Which existing tags did you consider and why don't they fit?
