@@ -1,5 +1,9 @@
 {"word":"ґудзик","pos":["noun"],"gender":"masc","tags":["object","clothing"]}
 {"word":"ґрунт","pos":["noun"],"gender":"masc","tags":["nature"]}
 {"word":"ґанок","pos":["noun"],"gender":"masc","tags":["building"]}
-{"word":"ґазда","pos":["noun"],"gender":"masc","tags":["person"]}
+{"word":"ґазда","pos":["noun"],"gender":"masc","tags":["person","dialect"]}
 {"word":"ґава","pos":["noun"],"gender":"fem","tags":["animal"]}
+{"word":"ґрація","pos":["noun"],"gender":"fem","tags":["abstract"]}
+{"word":"ґречний","pos":["adj"],"tags":["feeling"]}
+{"word":"ґатунок","pos":["noun"],"gender":"masc","tags":["abstract"]}
+{"word":"ґречність","pos":["noun"],"gender":"fem","tags":["abstract","feeling"]}
